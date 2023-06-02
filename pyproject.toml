@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "cashflow"
+version = "0.1.0"
+description = "See where your money is going and where it will be"
+license = "MIT"
+authors = ["Sam Potter <spotter1642@gmail.com>"]
+readme = "README.md"
+homepage = "https://github.com/stpotter16/cashflow"
+repository = "https://github.com/stpotter16/cashflow"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
