@@ -21,3 +21,13 @@ pytest-cov = "^4.1.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.coverage.paths]
+source = ["cashflow", "*/site-packages"]
+
+[tool.coverage.run]
+branch = true
+source = ["cashflow"]
+
+[tool.coverage.report]
+show_missing = true
