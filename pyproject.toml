@@ -15,6 +15,8 @@ Flask = "^2.3.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.3.1"
+coverage = {version = "^7.2.7", extras = ["toml"]}
+pytest-cov = "^4.1.0"
 
 [build-system]
 requires = ["poetry-core"]
