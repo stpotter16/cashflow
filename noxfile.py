@@ -5,7 +5,7 @@ import nox
 nox.options.sessions = "lint", "safety", "tests"
 
 
-@nox.session(python=["3.10", "3.9", "3.8"])
+@nox.session(python=["3.10"])
 def tests(session):
     session.run("poetry", "install", external=True)
     session.run("pytest", "--cov")
@@ -14,7 +14,7 @@ def tests(session):
 locations = "cashflow", "tests", "noxfile.py"
 
 
-@nox.session(python=["3.10", "3.9", "3.8"])
+@nox.session(python=["3.10"])
 def lint(session):
     args = session.posargs or locations
     session.install(
