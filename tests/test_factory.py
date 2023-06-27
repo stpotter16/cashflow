@@ -1,6 +1,6 @@
 from cashflow import create_app
 
 
-def test_config():
+def test_config() -> None:
     assert not create_app().testing
     assert create_app({"TESTING": True}).testing

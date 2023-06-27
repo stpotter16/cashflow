@@ -1,11 +1,12 @@
 import os
+from typing import Any, Literal, Mapping
 
 from flask import Flask
 
 __version__ = "0.1.0"
 
 
-def create_app(test_config=None) -> Flask:
+def create_app(test_config: Mapping[str, Any] | None = None) -> Flask:
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY="dev",
@@ -23,7 +24,7 @@ def create_app(test_config=None) -> Flask:
         pass
 
     @app.route("/hello")
-    def hello():
+    def hello() -> Literal["Hello, World!"]:
         return "Hello, World!"
 
     return app
