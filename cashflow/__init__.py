@@ -1,3 +1,4 @@
+"""Cashflow: See where your money is and where it is going."""
 import os
 from typing import Any, Literal, Mapping
 
@@ -7,7 +8,7 @@ __version__ = "0.1.0"
 
 
 def create_app(test_config: Mapping[str, Any] | None = None) -> Flask:
-    """Application factory
+    """Application factory.
 
     Creates an instance of the Flask application.
 
