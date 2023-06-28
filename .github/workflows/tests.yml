@@ -12,3 +12,4 @@ jobs:
       - run: pip install poetry==1.2.0
       - run: poetry install --with dev
       - run: poetry run flake8
+      - run: poetry run pytest --cov
