@@ -7,6 +7,17 @@ __version__ = "0.1.0"
 
 
 def create_app(test_config: Mapping[str, Any] | None = None) -> Flask:
+    """ Application factory
+
+    Creates an instance of the Flask application.
+
+    Args:
+        test_config: An optional dict containing configuration options for  
+            unit tests.
+
+    Returns:
+        An instance of a Flask app
+    """
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY="dev",
