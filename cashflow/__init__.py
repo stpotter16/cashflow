@@ -35,8 +35,8 @@ def create_app(test_config: Mapping[str, Any] | None = None) -> Flask:
     except OSError:
         pass
 
-
     from . import timeline
+
     app.register_blueprint(timeline.bp)
     app.add_url_rule("/", endpoint="index")
 
