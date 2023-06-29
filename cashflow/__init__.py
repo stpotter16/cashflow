@@ -1,6 +1,6 @@
 """Cashflow: See where your money is and where it is going."""
 import os
-from typing import Any, Literal, Mapping
+from typing import Any, Mapping
 
 from flask import Flask
 
@@ -35,8 +35,9 @@ def create_app(test_config: Mapping[str, Any] | None = None) -> Flask:
     except OSError:
         pass
 
-    @app.route("/hello")
-    def hello() -> Literal["Hello, World!"]:
-        return "Hello, World!"
+
+    from . import timeline
+    app.register_blueprint(timeline.bp)
+    app.add_url_rule("/", endpoint="index")
 
     return app
