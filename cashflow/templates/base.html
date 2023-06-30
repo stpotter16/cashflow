@@ -1,9 +1,18 @@
-<!doctype html>
-<title>{% block title %}{% endblock %} - Cashflow</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='pico.min.css' }}">
-<section>
-    <header>
-        {% block header %}{% endblock %}
-    </header>
-    {% block content %}{% endblock %}
-</section>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %} - Cashflow</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='pico.min.css') }}">
+    </head>
+    <body>
+        <main class="container">
+            <section>
+                <header>
+                    {% block header %}{% endblock %}
+                </header>
+                {% block content %}{% endblock %}
+            </section>
+        </main>
+    </body>
+</html>
