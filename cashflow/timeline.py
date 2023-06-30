@@ -1,13 +1,11 @@
 """Timeline views."""
-from typing import Literal
-
-from flask import Blueprint
+from flask import Blueprint, render_template
 
 bp = Blueprint("timeline", __name__)
 
 
 @bp.route("/")
-def index() -> Literal["Hello, World!"]:
+def index() -> str:
     """Timeline view.
 
     This route displays the money timeline.
@@ -15,4 +13,4 @@ def index() -> Literal["Hello, World!"]:
     Returns:
         String
     """
-    return "Hello, World!"
+    return render_template("timeline.html")
