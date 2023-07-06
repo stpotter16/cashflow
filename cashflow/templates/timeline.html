@@ -2,5 +2,24 @@
 
 {% block title %}Timeline{% endblock %}
 {% block header %}
-    <h1>Foo</h1>
+    <h1>Timeline</h1>
 {% endblock %}
+{% block content %}
+    <table role="grid">
+        <thead>
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Name</th>
+                <th scope="col">Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2023-07-07</td>
+                <td>Publix</td>
+                <td>100.0</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
+
