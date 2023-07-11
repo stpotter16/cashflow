@@ -14,11 +14,13 @@
             </tr>
         </thead>
         <tbody>
+            {% for transaction in transactions %}
             <tr>
-                <td>2023-07-07</td>
-                <td>Publix</td>
-                <td>100.0</td>
+                <td>{{ transaction["date"] }}</td>
+                <td>{{ transaction["name"] }}</td>
+                <td>{{ transaction["amount"] }}</td>
             </tr>
+            {% endfor %}
         </tbody>
     </table>
 {% endblock %}
