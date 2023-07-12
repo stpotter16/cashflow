@@ -14,3 +14,5 @@ def test_index(client: FlaskClient) -> None:
     assert b"Date" in response.data
     assert b"Name" in response.data
     assert b"Amount" in response.data
+    assert b"Account" in response.data
+    assert b"Category" in response.data
