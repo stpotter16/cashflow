@@ -1,5 +1,7 @@
 """Test fixtures."""
 from collections.abc import Generator
+import os
+import tempfile
 from typing import Any
 
 from flask import Flask
@@ -18,9 +20,19 @@ def app() -> Generator[Flask, Any, Any]:
     Returns:
         An instance of a Flask app
     """
-    app = create_app({"TESTING": True})
+    db_fd, db_path = tempfile.mkstemp()
+    app = create_app(
+        {
+            "TESTING": True,
+            "DATABASE": db_path,
+            "SQLALCHEMY_DATABASE_URI": "sqlite:///cashflow.sqlite",
+        }
+    )
 
     yield app
+
+    os.close(db_fd)
+    os.unlink(db_path)
 
 
 @pytest.fixture

@@ -3,8 +3,12 @@ import os
 from typing import Any, Mapping
 
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
 __version__ = "0.1.0"
+
+# TODO - I hate that this is global
+db = SQLAlchemy()
 
 
 def create_app(test_config: Mapping[str, Any] | None = None) -> Flask:
@@ -20,13 +24,13 @@ def create_app(test_config: Mapping[str, Any] | None = None) -> Flask:
         An instance of a Flask app
     """
     app = Flask(__name__, instance_relative_config=True)
-    app.config.from_mapping(
-        SECRET_KEY=os.environ.get("SECRET_KEY"),
-        DATABASE=os.path.join(app.instance_path, "cashflow.sqlite"),
-    )
 
     if test_config is None:
-        app.config.from_pyfile("config.py", silent=True)
+        app.config.from_mapping(
+            SECRET_KEY=os.environ.get("SECRET_KEY"),
+            DATABASE=os.path.join(app.instance_path, "cashflow.sqlite"),
+            SQLALCHEMY_DATABASE_URI="sqlite:///cashflow.sqlite",
+        )
     else:
         app.config.from_mapping(test_config)
 
@@ -34,6 +38,11 @@ def create_app(test_config: Mapping[str, Any] | None = None) -> Flask:
         os.makedirs(app.instance_path)
     except OSError:
         pass
+
+    db.init_app(app)
+
+    with app.app_context():
+        db.create_all()
 
     from . import timeline, transaction
 

@@ -1,6 +1,7 @@
 """Tests transaction page."""
 
 
+from flask import Flask
 from flask.testing import FlaskClient
 
 
@@ -16,3 +17,9 @@ def test_transaction_get(client: FlaskClient) -> None:
     assert b"Amount" in response.data
     assert b"Account" in response.data
     assert b"Category" in response.data
+
+
+def test_transaction_post(client: FlaskClient, app: Flask) -> None:
+    """Test transaction post action."""
+    # TODO - This is just a smoke test for place-holding
+    client.post("/transaction")
