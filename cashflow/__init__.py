@@ -49,6 +49,6 @@ def create_app(test_config: Mapping[str, Any] | None = None) -> Flask:
     app.register_blueprint(landing.bp)
     app.register_blueprint(timeline.bp)
     app.register_blueprint(transaction.bp)
-    app.add_url_rule("/", endpoint="index")
+    app.add_url_rule("/", endpoint="landing")
 
     return app

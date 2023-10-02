@@ -4,7 +4,7 @@ from flask import Blueprint, render_template
 bp = Blueprint("timeline", __name__)
 
 
-@bp.route("/")
+@bp.route("/timeline")
 def index() -> str:
     """Timeline view.
 
