@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}{% endblock %} - Cashflow</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='pico.min.css') }}">
+    </head>
+    <body>
+        <header class="container">
+            <nav>
+                <ul>
+                    <li>
+                        <details role="list">
+                            <summary aria-haspopup="listbox" role="link">Menu</summary>
+                            <ul role="listbox">
+                                {% for href, id, caption in navigation_bar %}
+                                <li><a href="{{ href|e }}">{% if id == active_page %}<b>{% endif %} {{ caption|e }} {% if id == active_page %}</b>{% endif %}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </details>
+                    </li>
+                </ul>
+                <ul>
+                    <li><strong>Cashflow</strong></li>
+                </ul>
+                <ul>
+                    <li><a href="#" role="button">Log out</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="container">
+            <section>
+                <header>
+                    {% block header %}{% endblock %}
+                </header>
+                {% block content %}{% endblock %}
+            </section>
+        </main>
+        {% block extra_js %}{% endblock %}
+    </body>
+</html>
