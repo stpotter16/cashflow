@@ -8,6 +8,7 @@ class Flow(db.Model):
     Represents the database schema for a flow.
     """
 
+    __tablename__ = "Flow"
     id = db.Column(db.String, primary_key=True)
     created = db.Column(db.DateTime)
     name = db.Column(db.String, nullable=True)

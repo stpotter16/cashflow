@@ -8,6 +8,7 @@ class Transaction(db.Model):
     Represents the database schema for a transaction.
     """
 
+    __tablename__ = "Tranaction"
     id = db.Column(db.String, primary_key=True)
     date = db.Column(db.DateTime)
     name = db.Column(db.String, nullable=True)
