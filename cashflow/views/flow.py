@@ -2,7 +2,7 @@
 from datetime import datetime
 from uuid import uuid4
 
-from flask import Blueprint, redirect, Response, render_template
+from flask import Blueprint, redirect, render_template, Response
 
 from cashflow import db
 from cashflow.models.flow import Flow
@@ -30,7 +30,7 @@ def flow_new() -> Response:
 @bp.route("/flow/<id>")
 def flow(id: str) -> str:
     """Flow view.
-    
+
     This route handles the view of a flow.
 
     Returns:
