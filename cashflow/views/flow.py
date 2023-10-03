@@ -23,7 +23,7 @@ def flow_new() -> Response:
     flow = Flow(id=id, created=datetime.now())
     db.session.add(flow)
     db.session.commit()
-    response = redirect(f"/transaction/{id}", 302)
+    response = redirect(f"/transaction/{id}")
     return response
 
 
