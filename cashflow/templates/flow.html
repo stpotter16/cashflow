@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% set active_page = "timeline" %}
+
+{% block title %}Timeline{% endblock %}
+{% block header %}
+    <h1>Timeline</h1>
+{% endblock %}
+{% block content %}
+    <section>
+        <!-- Button to add transaction-->
+        <a href="/transaction"
+           role="button"
+        >
+           Add transaction
+        </a>
+    </section>
+
+    <section>
+        <!-- Transactions table-->
+        <table role="grid">
+            <thead>
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Account</th>
+                    <th scope="col">Category</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction["date"] }}</td>
+                    <td>{{ transaction["name"] }}</td>
+                    <td>{{ transaction["amount"] }}</td>
+                    <td>{{ transaction["account"] }}</td>
+                    <td>{{ transaction["category"] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

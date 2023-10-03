@@ -44,8 +44,9 @@ def create_app(test_config: Mapping[str, Any] | None = None) -> Flask:
     with app.app_context():
         db.create_all()
 
-    from .views import landing, timeline, transaction
+    from .views import flow, landing, timeline, transaction
 
+    app.register_blueprint(flow.bp)
     app.register_blueprint(landing.bp)
     app.register_blueprint(timeline.bp)
     app.register_blueprint(transaction.bp)
