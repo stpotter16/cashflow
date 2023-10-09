@@ -22,6 +22,30 @@ def flow_transaction_get(flowid: str) -> str:
     return render_template("flow_transaction.html")
 
 
+@bp.route("/flow/<flowid>/transaction", methods=["POST"])
+def flow_transaction_post(flowid: str) -> Response:
+    """Transaction for particular flow form processing.
+
+    This route handles posts that add a trnasction to a flow.
+
+    Returns:
+        Response
+    """
+    transaction_data = request.form
+    transaction = Transaction(
+        id=str(uuid4()),
+        date=datetime.fromisoformat(transaction_data["date"]),
+        name=transaction_data["name"],
+        amount=transaction_data["amount"],
+        account=transaction_data["account"],
+        category=transaction_data["category"],
+    )
+    db.session.add(transaction)
+    db.session.commit()
+    response = redirect(f"/flow/{flowid}")
+    return response
+
+
 @bp.route("/transaction", methods=["GET"])
 def transaction_get() -> str:
     """Transaction form view.
