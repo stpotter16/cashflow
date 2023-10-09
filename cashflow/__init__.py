@@ -41,7 +41,7 @@ def create_app(test_config: Mapping[str, Any] | None = None) -> Flask:
 
     db.init_app(app)
 
-    from .models import flow, transaction
+    import cashflow.models  # noqa: F401
 
     with app.app_context():
         db.create_all()
