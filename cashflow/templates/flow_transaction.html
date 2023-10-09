@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% set active_page = "timeline" %}
+{% block title %}Transaction{% endblock %}
+{% block header %}
+    <h1>Add Transaction</h1>
+{% endblock %}
+{% block content %}
+    <form action="" method="POST">
+        <label for "date">
+            Date
+            <input type="date" id="date" name="date" placeholder="">
+        </label>
+        <label for="name">
+            Name
+            <input type="text" id="name" name="name" placeholder="">
+        </label>
+        <label for "amount">
+            Amount
+            <input type="number" id="amount" name="amount" placeholder="0.00">
+        </label>
+        <label for "account">
+            Account
+            <input type="text" id="account" name="account" placeholder="">
+        </label>
+        <label for "category">
+           Category
+           <input type="text" id="category" name="category" placeholder="">
+        </label>
+        <button type="submit">Add</button>
+    </form>
+{% endblock %}

@@ -10,6 +10,18 @@ from cashflow.models.transaction import Transaction
 bp = Blueprint("transaction", __name__)
 
 
+@bp.route("/flow/<flowid>/transaction", methods=["GET"])
+def flow_transaction_get(flowid: str) -> str:
+    """Transaction for particular flow form view.
+
+    This route displays the form to add a transaction to a particular flow.
+
+    Returns:
+        String
+    """
+    return render_template("flow_transaction.html")
+
+
 @bp.route("/transaction", methods=["GET"])
 def transaction_get() -> str:
     """Transaction form view.

@@ -36,4 +36,4 @@ def flow(id: str) -> str:
     Returns:
         String
     """
-    return render_template("flow.html")
+    return render_template("flow.html", data={"id": id})
